@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+        <script src="https://wzrd.in/standalone/es7-shim@latest"></script>
+        
+        <style>
+        	body {
+			  margin: 0;
+			}
+			#container {
+			  -webkit-box-sizing: border-box;
+			  -moz-box-sizing: border-box;
+			  box-sizing: border-box;
+			  padding: 10px;
+			  width: 800px;
+			  height: 800px;
+			  background-color: #fff;
+			}
+        </style>
+	</head>
+    <body class="page-container-bg-solid">
+	    <div id="container"></div>
+    	<script src="https://npmcdn.com/react@15.5.4/dist/react-with-addons.min.js"></script>
+    	<script src="https://npmcdn.com/react-dom@15.5.4/dist/react-dom.min.js"></script>
+    	<script src="https://npmcdn.com/prop-types@15.5.8/prop-types.min.js"></script>
+    	<script src="https://npmcdn.com/recharts@0.22.4/umd/Recharts.min.js"></script>
+    	<script type="text/javascript">
+    		var _Recharts = Recharts,
+			    Radar = _Recharts.Radar,
+			    RadarChart = _Recharts.RadarChart,
+			    PolarGrid = _Recharts.PolarGrid,
+			    Legend = _Recharts.Legend,
+			    PolarAngleAxis = _Recharts.PolarAngleAxis,
+			    PolarRadiusAxis = _Recharts.PolarRadiusAxis;
+
+			var data = [{ subject: 'Math', A: 120, B: 110, fullMark: 150 }, { subject: 'Chinese', A: 98, B: 130, fullMark: 150 }, { subject: 'English', A: 86, B: 130, fullMark: 150 }, { subject: 'Geography', A: 99, B: 100, fullMark: 150 }, { subject: 'Physics', A: 85, B: 90, fullMark: 150 }, { subject: 'History', A: 65, B: 85, fullMark: 150 }];
+
+			var TwoLevelPieChart = React.createClass({
+			  displayName: 'TwoLevelPieChart',
+			  render: function render() {
+			    return React.createElement(
+			      RadarChart,
+			      { cx: 300, cy: 250, outerRadius: 150, width: 600, height: 500, data: data },
+			      React.createElement(Radar, { name: 'Mike', dataKey: 'A', stroke: '#8884d8', fill: '#8884d8', fillOpacity: 0.6 }),
+			      React.createElement(PolarGrid, null),
+			      React.createElement(PolarAngleAxis, { dataKey: 'subject' }),
+			      React.createElement(PolarRadiusAxis, null)
+			    );
+			  }
+			});
+
+			ReactDOM.render(React.createElement(TwoLevelPieChart, null), document.getElementById('container'));
+    	</script>
+	</body>
+</html>
